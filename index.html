@@ -400,34 +400,11 @@
   }
 </script>
 
-<script>
-  function toggleChat() {
-    const chatbot = document.getElementById("chatbot");
-    chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
-  }
-
-  function sendMessage() {
-    const input = document.getElementById("userInput");
-    const msg = input.value.trim().toLowerCase();
-    if (!msg) return;
-
-    const chatbox = document.getElementById("chatbox");
-    chatbox.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
-
-    const reply = responses[msg] || responses["default"];
-    setTimeout(() => {
-      chatbox.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }, 500);
-
-    input.value = "";
-  }
-</script>
-
 
 </body>
 
 </html>
+
 
 
 
