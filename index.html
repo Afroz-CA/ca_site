@@ -271,12 +271,13 @@
     </script>
 
     <!-- Floating Chatbot with Toggle Icon -->
+<!-- Floating Chatbot with Toggle Icon -->
 <style>
   #chatbot-toggle {
     position: fixed;
     bottom: 20px;
-    right: 90px; /* moved left to avoid Book Now button */
-    background-color: #7a1818; /* matched theme color */
+    right: 20px;
+    background-color: #7a1818;
     color: white;
     border: none;
     border-radius: 50%;
@@ -290,7 +291,7 @@
   }
 
   #chatbot-toggle:hover {
-    background-color: #5a1818; /* darken on hover */
+    background-color: #5a1818;
   }
 
   #chatbot {
@@ -331,8 +332,7 @@
 </style>
 
 <!-- Toggle Button -->
-<button id="chatbot-toggle" onclick="toggleChat()">💬</button>
-
+<button id="chatbot-toggle" onclick="toggleChat()" title="Chat with us 💬">💬</button>
 
 <!-- Chatbot Box -->
 <div id="chatbot">
@@ -383,6 +383,7 @@
 </body>
 
 </html>
+
 
 
 
