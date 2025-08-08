@@ -337,30 +337,70 @@
 
 <!-- Chatbot Script -->
 <script>
-  const responses = {
-    "hi": "Hi there! How can I help you today?",
-    "hello": "Hello! Welcome to Afroz & Co. How may I assist you?",
-    "hey":	"Hey! Need help with tax, audit, or business services? I'm here for you.",
-    "Where are you located?":	"We’re located in Hyderabad, Telangana. We also work online across India.",
-    "How can I contact you?":	"You can use the contact form on our website, or email us. We’ll get back within 24 hours.",
-    "What are your working hours?":	"We’re available from Monday to Saturday, 10 AM to 6 PM IST.",
-    "Can you help startups?":	"Definitely. We assist with business setup, company registration, tax advisory, and compliance.",
-    "Do you offer company registration services?":	"Yes, we register companies including LLPs, Pvt Ltd, and partnerships.",
-    "How much do you charge?":	"Pricing depends on the service. Please reach out via our contact form for a detailed quote.",
-    "Do you offer online consultation?": "Yes, we offer virtual consultations via phone, video, or email.",
-    "Do you only serve Hyderabad clients?":	"No, we assist clients all over India with remote services.",
-    "bye": "Bye! Take care and reach out anytime!",
-    "thanks": "You're welcome 😊",
-    "thank you": "Glad I could help!",
-    "who are you": "I’m your digital assistant from Afroz & Co CA Consultation.",
-    "services": "We offer tax filing, GST, auditing, accounting, and business consulting.",
-    "gst": "Yes, We handle GST registration, monthly returns, and compliance for individuals and businesses.",
-    "audit": "We conduct statutory, internal, and management audits.",
-    "Do you offer income tax filing?": " Absolutely. We handle ITRs for salaried professionals, freelancers, and businesses.",
-    "contact": "You can contact us using the form on our website or via email.",
-    "default": "Sorry, I didn’t understand that. Try asking about services, GST, or audit."
-  };
+  function toggleChat() {
+    const chatbot = document.getElementById("chatbot");
+    chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+  }
 
+  function sendMessage() {
+    const input = document.getElementById("userInput");
+    const msg = input.value.trim().toLowerCase();
+    if (!msg) return;
+
+    const chatbox = document.getElementById("chatbox");
+    chatbox.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+
+    const reply = getReply(msg);
+    setTimeout(() => {
+      chatbox.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  }
+
+  function getReply(msg) {
+    if (msg.includes("hi") || msg.includes("hii") || msg.includes("hello") || msg.includes("hey")) {
+      return "Hi there! How can I help you today?" || "Hello! Welcome to Afroz & Co. How may I assist you?";
+    } else if (msg.includes("where") && msg.includes("located")) {
+      return "We’re located in Hyderabad, Telangana. We also work online across India.";
+    } else if (msg.includes("how") && msg.includes("contact")) {
+      return "You can use the contact form on our website, or email us. We’ll get back within 24 hours.";
+    } else if (msg.includes("working hours") || msg.includes("timing") || msg.includes("open")) {
+      return "We’re available from Monday to Saturday, 10 AM to 6 PM IST.";
+    } else if (msg.includes("startup")) {
+      return "Definitely. We assist with business setup, company registration, tax advisory, and compliance.";
+    } else if (msg.includes("company registration")) {
+      return "Yes, we register companies including LLPs, Pvt Ltd, and partnerships.";
+    } else if (msg.includes("charge") || msg.includes("price") || msg.includes("cost")) {
+      return "Pricing depends on the service. Please reach out via our contact form for a detailed quote.";
+    } else if (msg.includes("online consultation") || msg.includes("virtual")) {
+      return "Yes, we offer virtual consultations via phone, video, or email.";
+    } else if (msg.includes("only serve") || msg.includes("hyderabad client")) {
+      return "No, we assist clients all over India with remote services.";
+    } else if (msg.includes("bye")) {
+      return "Bye! Take care and reach out anytime!";
+    } else if (msg.includes("thank")) {
+      return "You're welcome 😊";
+    } else if (msg.includes("who are you") || msg.includes("your name")) {
+      return "I’m your digital assistant from Afroz & Co CA Consultation.";
+    } else if (msg.includes("services")) {
+      return "We offer tax filing, GST, auditing, accounting, and business consulting.";
+    } else if (msg.includes("gst")) {
+      return "Yes, We handle GST registration, monthly returns, and compliance for individuals and businesses.";
+    } else if (msg.includes("audit")) {
+      return "We conduct statutory, internal, and management audits.";
+    } else if (msg.includes("income tax")) {
+      return "Absolutely. We handle ITRs for salaried professionals, freelancers, and businesses.";
+    } else if (msg.includes("contact")) {
+      return "You can contact us using the form on our website or via email.";
+    } else {
+      return "Sorry, I didn’t understand that. Try asking about services, GST, or audit.";
+    }
+  }
+</script>
+
+<script>
   function toggleChat() {
     const chatbot = document.getElementById("chatbot");
     chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
@@ -388,6 +428,7 @@
 </body>
 
 </html>
+
 
 
 
